@@ -1,4 +1,4 @@
-import {INCREMENT, DECREMENT} from '../actions/types'
+import {INCREMENT, DECREMENT, INCREMENTBY} from '../actions/types'
 
 const initialState = {
 
@@ -19,7 +19,10 @@ export const counterReducer = (state=initialState,action) => {
             count:state.count-1
         }
 
-    
+    case INCREMENTBY :
+        return {
+            count:state.count+5
+        }
     
     default :
     return state

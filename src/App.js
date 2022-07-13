@@ -1,31 +1,23 @@
 import './App.css';
 import { useSelector,useDispatch } from 'react-redux';
-import {INCREMENT ,DECREMENT} from './redux/actions/types'
+import { incrementAction,decrementAction,incrementbyAction } from './redux/actions/counterActions';
 function App() {
 
   const countState = useSelector(state => state.count);
   const dispatch = useDispatch()
 
- const handleIncrement = () => {
+ const handleIncrement = () => dispatch(incrementAction())
 
-   dispatch({
-     type : INCREMENT
-   })
+ const handleDecrement = () => dispatch(decrementAction())
 
- }
+ const handleIncrementBy = () => dispatch(incrementbyAction())
 
- const handleDecrement = () => {
-
-   dispatch ({
-     type: DECREMENT
-   })
-
- }
   return (
     <div className="App">
       <div>{countState}</div>
       <button onClick={handleIncrement}>INCREMENT</button>
       <button onClick={handleDecrement}>DECREMENT</button>
+      <button onClick={handleIncrementBy}>INCREMENT BY 5</button>
     </div>
   );
 }
